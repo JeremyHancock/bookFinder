@@ -1,0 +1,21 @@
+.navbar {
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  padding-bottom: 20px;
+}
+
+.nav-link{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  text-decoration: none;
+  font-size: 1em;
+  margin: 4px 4px;
+  cursor: pointer;
+}
+
+.nav-link.active{
+  color: black;
+}

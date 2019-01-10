@@ -1,0 +1,20 @@
+.my-form-group{
+color: blue;
+}
+.my-form-control{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid black;
+}
+.my-btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 4px 2px;
+    cursor: pointer;
+}
