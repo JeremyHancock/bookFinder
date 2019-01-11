@@ -1,7 +1,8 @@
 import axios from "axios";
-// const keys = require('../keys');
+const keys = require('../keys');
 const url = 'https://www.googleapis.com/books/v1/volumes?q=';
-const apiKey = `&key=AIzaSyBt9All9kk4IGVl6MwBxa9AvajQgNmwtOU`;
+const apiKey = `&key=${keys.apiKey}`;
+
 export default {
   // Gets all books
   
@@ -16,9 +17,6 @@ export default {
   },
   getSavedBooks: function (id) {
     return axios.get("/api/books/");
-  },
-  getSavedBook: function (id) {
-    return axios.get("/api/books/" + id);
   },
   // Deletes the book with the given id
   deleteBook: function (id) {

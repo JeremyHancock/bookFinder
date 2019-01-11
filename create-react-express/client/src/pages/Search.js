@@ -5,13 +5,14 @@ import { Container, Row, Col } from 'reactstrap';
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import Book from "../components/Book";
+import SaveBtn from "../components/SaveBtn";
 
 function getSafe(fn, defaultVal) {
   try {
-      return fn();
+    return fn();
   } catch (e) {
     console.log("getSafe employed: " + fn)
-      return defaultVal;
+    return defaultVal;
   }
 }
 class Books extends Component {
@@ -19,6 +20,14 @@ class Books extends Component {
     books: [],
     title: "",
     author: ""
+  };
+
+  saveBook = id => {
+    API.saveBook(id)
+      .then(res => {
+        alert("Book saved! Click in the nav bar to see your saved books");
+      })
+      .catch(err => console.log(err));
   };
 
   handleInputChange = event => {
@@ -36,8 +45,7 @@ class Books extends Component {
         author: this.state.author
       })
         .then(res => {
-          console.log(res.data.items[0].id);
-          this.setState({ books: res.data.items, title: "", author: "" })
+          this.setState({ books: res.data.items})
         })
         .catch(err => console.log(err));
     }
@@ -48,9 +56,9 @@ class Books extends Component {
       <Container fluid>
         <Row>
           <Col size="md-6">
-            <Jumbotron>
+            <Row className="statement">
               <h1>Find a great book!</h1>
-            </Jumbotron>
+            </Row>
             <Jumbotron>
               <Input
                 value={this.state.title}
@@ -84,6 +92,13 @@ class Books extends Component {
                     synopsis={getSafe(() => book.volumeInfo.description)}
                     image={getSafe(() => book.volumeInfo.imageLinks.thumbnail)}
                   />
+                  <SaveBtn onClick={() => this.saveBook({
+                    reference: `${book.id}`,
+                    title: `${book.volumeInfo.title}`,
+                    author: `${book.volumeInfo.authors[0]}`,
+                    synopsis: `${getSafe(() => book.volumeInfo.description)}`,
+                    image: `${getSafe(() => book.volumeInfo.imageLinks.thumbnail)}`
+                  })} />
                 </ListItem>
               ))}
             </List>

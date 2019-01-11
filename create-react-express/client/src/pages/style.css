@@ -19,3 +19,13 @@ cursor: pointer;
     text-align: center;
     padding-top: 20px;
 }
+.statement{
+    text-align: center;
+}
+.list-overflow-container{
+    margin-left: 100px;
+    margin-right: 100px;
+    border-color: none;
+    overflow: auto;
+    border: 0;
+}

@@ -19,7 +19,8 @@ module.exports = {
     db.Book
       .create(req.body)
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        res.status(422).json(err)});
   },
   update: function(req, res) {
     db.Book

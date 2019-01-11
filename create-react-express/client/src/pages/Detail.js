@@ -14,7 +14,6 @@ class Detail extends Component {
   loadBook = () => {
     API.getBook(this.props.match.params.id)
       .then(res => {
-        console.log(res.data.items[0].volumeInfo);
         this.setState({
           book: res.data.items[0],
           title: res.data.items[0].volumeInfo.title,

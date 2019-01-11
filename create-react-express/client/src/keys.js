@@ -1,3 +1,1 @@
-exports.googleBooks = {
-    token: process.env.GOOGLE_BOOKS_API_KEY
-  };
+export const apiKey = 'AIzaSyB94pmz3pyvhDburGrTwpUgtsq52oWXCj8';
