@@ -1,8 +1,12 @@
 import axios from "axios";
 const keys = require('../keys');
 const url = 'https://www.googleapis.com/books/v1/volumes?q=';
+<<<<<<< HEAD
 const apiKey = `&key=${keys.apiKey}`;
 
+=======
+const apiKey = `&key=${keys.token}`;
+>>>>>>> e2a19d4ba60aaba920477ab97a2fef7afdb0b4bd
 export default {
   // Gets all books
   
